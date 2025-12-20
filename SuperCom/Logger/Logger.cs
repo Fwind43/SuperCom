@@ -40,7 +40,7 @@ namespace SuperCom.Log
             if (Writing)
                 return;
             Writing = true;
-            Console.Write(str);
+            System.Diagnostics.Debug.Write(str);
             if (!Directory.Exists(LOG_DIR))
                 DirHelper.TryCreateDirectory(LOG_DIR);
             string filePath = Path.Combine(LOG_DIR, DateHelper.NowDate() + SuperCom.Log.Logger.DEFAULT_LOG_EXTENSION);

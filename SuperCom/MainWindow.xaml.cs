@@ -1702,7 +1702,7 @@ namespace SuperCom
 
                     await Task.Delay(100);
                     time += 100;
-                    //Console.WriteLine("查找中...");
+                    //System.Diagnostics.Debug.WriteLine("查找中...");
                 } else {
                     break;
                 }

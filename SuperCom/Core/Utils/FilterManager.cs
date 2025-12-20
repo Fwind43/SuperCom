@@ -45,7 +45,7 @@ namespace SuperCom.Utils
                     if (!FilterQueue.IsEmpty) {
                         bool success = FilterQueue.TryDequeue(out string data);
                         if (!success) {
-                            Console.WriteLine("取队列元素失败");
+                            System.Diagnostics.Debug.WriteLine("取队列元素失败");
                             continue;
                         }
 
@@ -54,11 +54,11 @@ namespace SuperCom.Utils
                                 onFilter?.Invoke(data);
                             });
                         } else {
-                            Console.WriteLine($"过滤了：{data}");
+                            System.Diagnostics.Debug.WriteLine($"过滤了：{data}");
                         }
                     } else {
                         await Task.Delay(100);
-                        //Console.WriteLine("过滤中...");
+                        //System.Diagnostics.Debug.WriteLine("过滤中...");
                     }
                     if (StopFilter)
                         break;

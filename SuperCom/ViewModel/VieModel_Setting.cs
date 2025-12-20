@@ -262,7 +262,7 @@ namespace SuperCom.ViewModel
 
             int count = MapperManager.RuleMapper.UpdateById(rule);
             if (count <= 0) {
-                Console.WriteLine($"重命名 {rule.RuleName} 失败");
+                System.Diagnostics.Debug.WriteLine($"重命名 {rule.RuleName} 失败");
             }
 
         }
@@ -284,7 +284,7 @@ namespace SuperCom.ViewModel
         {
             bool result = MapperManager.RuleMapper.UpdateFieldById("RuleName", rule.RuleName, rule.RuleID);
             if (!result) {
-                Console.WriteLine($"重命名 {rule.RuleName} 失败");
+                System.Diagnostics.Debug.WriteLine($"重命名 {rule.RuleName} 失败");
             }
 
         }

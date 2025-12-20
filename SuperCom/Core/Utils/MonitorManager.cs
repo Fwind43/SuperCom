@@ -46,7 +46,7 @@ namespace SuperCom.Utils
             //        string toWrite = $"{{\"value\":\"{match.Value}\", " +
             //            $"\"line\":\"{line}\", " +
             //            $"\"pattern\":\"{monitor.RegexPattern}\"}}{Environment.NewLine}";
-            //        Console.WriteLine($"成功捕获：{toWrite}");
+            //        System.Diagnostics.Debug.WriteLine($"成功捕获：{toWrite}");
             //        FileHelper.TryAppendToFile(monitor.DataFileName, toWrite);
             //        break;
             //    }
@@ -64,13 +64,13 @@ namespace SuperCom.Utils
                     if (!MonitorQueue.IsEmpty) {
                         bool success = MonitorQueue.TryDequeue(out string data);
                         if (!success) {
-                            Console.WriteLine("取队列元素失败");
+                            System.Diagnostics.Debug.WriteLine("取队列元素失败");
                             continue;
                         }
                         RecordMonitorValue(data);
                     } else {
                         await Task.Delay(100);
-                        //Console.WriteLine("过滤中...");
+                        //System.Diagnostics.Debug.WriteLine("过滤中...");
                     }
                     if (StopMonitor)
                         break;

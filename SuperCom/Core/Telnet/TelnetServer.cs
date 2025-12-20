@@ -174,7 +174,7 @@ namespace SuperCom.Core.Telnet
                 byte[] data = Encoding.ASCII.GetBytes(message);
                 sendBytesToSocket(s, data);
             } catch (Exception e) {
-                Console.WriteLine(e);
+                System.Diagnostics.Debug.WriteLine(e);
             }
 
         }
@@ -205,7 +205,7 @@ namespace SuperCom.Core.Telnet
                         c.resetReceivedData();
                     }
                 } catch (Exception e) {
-                    Console.WriteLine(e);
+                    System.Diagnostics.Debug.WriteLine(e);
                     clients.Remove(s);
                 }
             }
@@ -275,7 +275,7 @@ namespace SuperCom.Core.Telnet
             try {
                 clientSocket.Close();
             } catch (Exception e) {
-                Console.WriteLine(e);
+                System.Diagnostics.Debug.WriteLine(e);
             } finally {
                 clients.Remove(clientSocket);
             }
@@ -320,7 +320,7 @@ namespace SuperCom.Core.Telnet
                     ConnectionBlocked((IPEndPoint)oldSocket.RemoteEndPoint);
                 }
             } catch (Exception e) {
-                Console.WriteLine(e);
+                System.Diagnostics.Debug.WriteLine(e);
             }
         }
 
@@ -336,7 +336,7 @@ namespace SuperCom.Core.Telnet
 
                 clientSocket.BeginReceive(data, 0, dataSize, SocketFlags.None, new AsyncCallback(receiveData), clientSocket);
             } catch (Exception e) {
-                Console.WriteLine(e);
+                System.Diagnostics.Debug.WriteLine(e);
             }
         }
 
@@ -398,7 +398,7 @@ namespace SuperCom.Core.Telnet
                 } else
                     clientSocket.BeginReceive(data, 0, dataSize, SocketFlags.None, new AsyncCallback(receiveData), clientSocket);
             } catch (Exception e) {
-                Console.WriteLine(e);
+                System.Diagnostics.Debug.WriteLine(e);
             }
         }
     }
