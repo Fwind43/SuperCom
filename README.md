@@ -2,6 +2,8 @@
 
 [中文](README.md) [English](README_EN.md) 
 
+<div style="color: darkred; font-size: 20px;font-weight: bold">版本4.5后不再新增功能，仅做关键问题修复，目前逐步切换平台中</div>
+
 
 <h1 align="center">SuperCom</h1>
 
@@ -220,17 +222,26 @@ command>
 
 # 放弃WPF的原因
 
-## Visual Studio 各种问题
+一、IDE报错
 
-莫名奇妙不支持热重载
+- 莫名奇妙不支持热重载（没有任何代码修改）
+- 一堆波浪线报错
+- 概率性编译报错
+
+二、多设备开发不友好
+
+- Visual Studio 需要登陆
+- Visual Studio 需要代理才能编译
+- IDE较大，启动慢，相比 Visual Studio Code 过重
+
+三、代码维护
+
+- 无法支持跨平台开发
+- 无法维护多平台
 
 <img src="Image/image-20251220111311939.png" alt="image-20251220111311939" style="zoom:80%;" />
 
-一堆波浪线报错
-
 <img src="Image/image-20251220111508680.png" alt="image-20251220111508680" style="zoom:80%;" />
-
-概率性编译报错
 
 <img src="Image/image-20251220115539805.png" alt="image-20251220115539805" style="zoom:80%;" />
 
