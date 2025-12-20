@@ -8,6 +8,7 @@ using SuperControls.Style.Windows;
 using SuperUtils.Common;
 using SuperUtils.IO;
 using SuperUtils.Time;
+using SuperUtils.WPF.VisualTools;
 using System;
 using System.Collections.Generic;
 using System.IO.Ports;
@@ -87,8 +88,33 @@ namespace SuperCom
             if (Main != null && Main.vieModel != null && vieModel.CurrentProjects?.Count > 0) {
                 if (SideSelectedIndex < 0 || SideSelectedIndex > vieModel.CurrentProjects.Count)
                     SideSelectedIndex = 0;
-                sideListBox.SelectedIndex = SideSelectedIndex;
+                ScrollToItem(SideSelectedIndex);
             }
+        }
+
+        private void ScrollToItem(int targetIndex)
+        {
+            if (targetIndex < 0 || targetIndex >= sideListBox.Items.Count) {
+                return;
+            }
+            sideListBox.Dispatcher.BeginInvoke(new Action(() => {
+                if (sideListBox.ItemContainerGenerator.ContainerFromIndex(targetIndex) is ListBoxItem listBoxItem) {
+                    listBoxItem.BringIntoView();
+                    sideListBox.SelectedIndex = targetIndex;
+                } else {
+                    ScrollToIndexDirectly(sideListBox, targetIndex);
+                }
+            }), System.Windows.Threading.DispatcherPriority.Render);
+        }
+
+        private void ScrollToIndexDirectly(ListBox listBox, int targetIndex)
+        {
+            var scrollViewer = VisualHelper.FindVisualChild<ScrollViewer>(listBox);
+            if (scrollViewer == null) {
+                return;
+            }
+            listBox.ScrollIntoView(listBox.Items[targetIndex]);
+            listBox.SelectedIndex = targetIndex;
         }
 
         private void DeleteProject(object sender, RoutedEventArgs e)

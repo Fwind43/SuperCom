@@ -217,3 +217,16 @@ Examples:
 command>
 
 ```
+
+# 放弃WPF的原因
+
+## Visual Studio 各种问题
+
+莫名奇妙不支持热重载
+
+<img src="Image/image-20251220111311939.png" alt="image-20251220111311939" style="zoom:80%;" />
+
+一堆波浪线报错
+
+<img src="Image/image-20251220111508680.png" alt="image-20251220111508680" style="zoom:80%;" />
+
