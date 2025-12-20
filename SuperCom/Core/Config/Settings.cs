@@ -68,7 +68,15 @@ namespace SuperCom.Config.WindowConfig
         public long RemoteIndex { get; set; }
         public bool EnabledLogFrag { get; set; }
         public long LogFragSize { get; set; }
-        public long MemoryLimit { get; set; }
+        public long _MemoryLimit;
+
+        public long MemoryLimit {
+            get { return _MemoryLimit; }
+            set {
+                _MemoryLimit = value;
+                RaisePropertyChanged();
+            }
+        }
         public bool HintWhenPin { get; set; }
         public bool FixedWhenFocus { get; set; }
         public bool AvoidScreenClose { get; set; }
