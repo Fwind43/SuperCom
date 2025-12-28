@@ -28,6 +28,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mime;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
@@ -154,7 +155,7 @@ namespace SuperCom
         }
 
 
-        private async void OnRecvProc(object data)
+        private void OnRecvProc(object data)
         {
             if (data is TabInfo tabInfo) {
                 List<string> nameList = tabInfo.Data as List<string>;
@@ -162,14 +163,19 @@ namespace SuperCom
                 bool isConnected = tabInfo.IsConnected;
                 if (!tabInfo.RemoveBar) {
                     // 新建 tab
-                    foreach (string name in nameList) {
-                        Logger.Info($"proc tab bar: {name}, connect: {isConnected}");
-                        await OpenPortTabItem(name, isConnected);
-                        await ConnectPort(name, isConnected, connectType);
-                    }
-                    await Task.Delay(200);
+                    ConnectAllPort(nameList, isConnected, connectType);
                 }
             }
+        }
+
+        private async void ConnectAllPort(List<string> nameList, bool isConnected, ConnectType connectType)
+        {
+            foreach (string name in nameList) {
+                Logger.Info($"proc tab bar: {name}, connect: {isConnected}");
+                await OpenPortTabItem(name, isConnected);
+                await ConnectPort(name, isConnected, connectType);
+            }
+            await Task.Delay(200);
         }
 
         private void OnMemoryDog()
@@ -2814,7 +2820,21 @@ namespace SuperCom
 
         private async void CloseAllConnectPort(object sender, RoutedEventArgs e)
         {
-            await CloseAllConnectPort();
+            if (sender is MenuItem  menuItem && menuItem.Header.ToString() is string header) {
+                if (header.Equals(LangManager.GetValueByKey("ConnectAll"))) {
+                    List<string> nameList = new List<string>();
+                    foreach (var item in vieModel.PortTabItems) {
+                        string portName = item.Name;
+                        if (!item.Connected)
+                            nameList.Add(portName);
+                    }
+
+                    ConnectAllPort(nameList, true, ConnectType.Com);
+                } else if (header.Equals(LangManager.GetValueByKey("DisConnectAll"))) {
+                    await CloseAllConnectPort();
+                }
+            }
+          
         }
 
         private async Task<bool> CloseAllConnectPort()
