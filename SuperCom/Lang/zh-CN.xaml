@@ -75,4 +75,34 @@
     <sys:String x:Key="SendPrefix">发送提示前缀</sys:String>
     <sys:String x:Key="TextEditorIsReadOnly">日志禁止编辑</sys:String>
 
+    <!-- 数据筛选导出 -->
+    <sys:String x:Key="DataFilterTitle">数据筛选规则</sys:String>
+    <sys:String x:Key="SaveFilteredLog">筛选导出</sys:String>
+    <sys:String x:Key="DataFilterSettings">筛选规则设置</sys:String>
+    <sys:String x:Key="RuleName">规则名称</sys:String>
+    <sys:String x:Key="MatchType">匹配类型</sys:String>
+    <sys:String x:Key="MatchPattern">匹配模式</sys:String>
+    <sys:String x:Key="Enabled">启用</sys:String>
+    <sys:String x:Key="EditFilterRule">编辑筛选规则</sys:String>
+    <sys:String x:Key="Description">描述</sys:String>
+    <sys:String x:Key="MatchTypeKeyword">关键字</sys:String>
+    <sys:String x:Key="MatchTypeRegex">正则表达式</sys:String>
+    <sys:String x:Key="MatchTypeHexPattern">十六进制模式</sys:String>
+    <sys:String x:Key="RuleNameRequired">请输入规则名称</sys:String>
+    <sys:String x:Key="MatchPatternRequired">请输入匹配模式</sys:String>
+    <sys:String x:Key="PleaseSelectRule">请选择规则</sys:String>
+    <sys:String x:Key="ConfirmDelete">确认删除？</sys:String>
+    <sys:String x:Key="DeleteSuccess">删除成功</sys:String>
+    <sys:String x:Key="TestFilter">测试筛选</sys:String>
+    <sys:String x:Key="FilterTestTitle">筛选测试</sys:String>
+    <sys:String x:Key="InputData">输入数据</sys:String>
+    <sys:String x:Key="SelectRule">选择规则</sys:String>
+    <sys:String x:Key="RunTest">运行测试</sys:String>
+    <sys:String x:Key="FilterResult">筛选结果</sys:String>
+    <sys:String x:Key="PleaseInputData">请输入测试数据</sys:String>
+    <sys:String x:Key="MatchResultCount">匹配到 {0} 行数据</sys:String>
+    <sys:String x:Key="SelectFilterRule">选择筛选规则</sys:String>
+    <sys:String x:Key="NoFilterRules">没有可用的筛选规则，请先添加规则</sys:String>
+    <sys:String x:Key="NoMatchedData">没有匹配的数据</sys:String>
+
 </ResourceDictionary>

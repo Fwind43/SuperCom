@@ -75,5 +75,35 @@
     <sys:String x:Key="SendPrefix">Send Prefix</sys:String>
         <sys:String x:Key="TextEditorIsReadOnly">Log editing is prohibited</sys:String>
 
+    <!-- Data Filter Export -->
+    <sys:String x:Key="DataFilterTitle">Data Filter Rules</sys:String>
+    <sys:String x:Key="SaveFilteredLog">Filter Export</sys:String>
+    <sys:String x:Key="DataFilterSettings">Filter Settings</sys:String>
+    <sys:String x:Key="RuleName">Rule Name</sys:String>
+    <sys:String x:Key="MatchType">Match Type</sys:String>
+    <sys:String x:Key="MatchPattern">Match Pattern</sys:String>
+    <sys:String x:Key="Enabled">Enabled</sys:String>
+    <sys:String x:Key="EditFilterRule">Edit Filter Rule</sys:String>
+    <sys:String x:Key="Description">Description</sys:String>
+    <sys:String x:Key="MatchTypeKeyword">Keyword</sys:String>
+    <sys:String x:Key="MatchTypeRegex">Regex</sys:String>
+    <sys:String x:Key="MatchTypeHexPattern">Hex Pattern</sys:String>
+    <sys:String x:Key="RuleNameRequired">Please enter rule name</sys:String>
+    <sys:String x:Key="MatchPatternRequired">Please enter match pattern</sys:String>
+    <sys:String x:Key="PleaseSelectRule">Please select a rule</sys:String>
+    <sys:String x:Key="ConfirmDelete">Confirm delete?</sys:String>
+    <sys:String x:Key="DeleteSuccess">Delete success</sys:String>
+    <sys:String x:Key="TestFilter">Test Filter</sys:String>
+    <sys:String x:Key="FilterTestTitle">Filter Test</sys:String>
+    <sys:String x:Key="InputData">Input Data</sys:String>
+    <sys:String x:Key="SelectRule">Select Rule</sys:String>
+    <sys:String x:Key="RunTest">Run Test</sys:String>
+    <sys:String x:Key="FilterResult">Filter Result</sys:String>
+    <sys:String x:Key="PleaseInputData">Please input test data</sys:String>
+    <sys:String x:Key="MatchResultCount">Matched {0} lines</sys:String>
+    <sys:String x:Key="SelectFilterRule">Select Filter Rule</sys:String>
+    <sys:String x:Key="NoFilterRules">No filter rules available, please add rules first</sys:String>
+    <sys:String x:Key="NoMatchedData">No matched data</sys:String>
+
 
 </ResourceDictionary>

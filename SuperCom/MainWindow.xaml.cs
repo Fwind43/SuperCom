@@ -313,6 +313,7 @@ namespace SuperCom
             HighLightRule.InitSqlite();
             ShortCutBinding.InitSqlite();
             VarMonitor.InitSqlite();
+            DataFilterRule.InitSqlite();
         }
 
 
@@ -2916,6 +2917,83 @@ namespace SuperCom
         private void SaveLogAsHex(object sender, RoutedEventArgs e)
         {
             SaveLog(SaveLogType.Hex);
+        }
+
+        private void SaveFilteredLog(object sender, RoutedEventArgs e)
+        {
+            // 检查是否有筛选规则
+            if (DataFilterRule.AllRules == null || DataFilterRule.AllRules.Count == 0)
+            {
+                MessageNotify.Warning(LangManager.GetValueByKey("NoFilterRules"));
+                return;
+            }
+
+            // 获取当前选中的串口
+            PortTabItem portTabItem = null;
+            foreach (var item in vieModel.PortTabItems)
+            {
+                if (item.Selected)
+                {
+                    portTabItem = item;
+                    break;
+                }
+            }
+
+            if (portTabItem == null || portTabItem.TextEditor == null)
+            {
+                MessageNotify.Warning(LangManager.GetValueByKey("CurrentNoLog"));
+                return;
+            }
+
+            // 显示规则选择窗口
+            Window_FilterSelect filterSelect = new Window_FilterSelect();
+            filterSelect.Owner = this;
+            if ((bool)filterSelect.ShowDialog())
+            {
+                var selectedRule = filterSelect.SelectedRule;
+                if (selectedRule == null)
+                {
+                    MessageNotify.Warning(LangManager.GetValueByKey("PleaseSelectRule"));
+                    return;
+                }
+
+                // 筛选数据
+                string text = portTabItem.TextEditor.Text;
+                string[] lines = text.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
+                System.Text.StringBuilder filteredData = new System.Text.StringBuilder();
+
+                foreach (string line in lines)
+                {
+                    if (selectedRule.IsMatch(line))
+                    {
+                        filteredData.AppendLine(line);
+                    }
+                }
+
+                if (filteredData.Length == 0)
+                {
+                    MessageNotify.Warning(LangManager.GetValueByKey("NoMatchedData"));
+                    return;
+                }
+
+                // 保存筛选后的数据
+                string target = FileHelper.SaveFile(null, null, "Normal text file|*.txt|All types|*.*");
+                if (string.IsNullOrEmpty(target))
+                {
+                    return;
+                }
+
+                FileHelper.TryWriteToFile(target, filteredData.ToString(), encoding: Encoding.UTF8);
+                FileHelper.TryOpenSelectPath(target);
+                Logger.Info($"save filtered log to {target}, rule: {selectedRule.RuleName}");
+            }
+        }
+
+        private void OpenDataFilter(object sender, RoutedEventArgs e)
+        {
+            Window_DataFilter dataFilter = new Window_DataFilter();
+            dataFilter.Owner = this;
+            dataFilter.Show();
         }
 
 

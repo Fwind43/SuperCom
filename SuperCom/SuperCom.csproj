@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SuperCom</RootNamespace>
     <AssemblyName>SuperCom</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -173,6 +173,8 @@
     <Compile Include="Core\Entity\Enums\RunningStatus.cs" />
     <Compile Include="Core\Entity\Enums\SaveLogType.cs" />
     <Compile Include="Core\Entity\Enums\VarDataType.cs" />
+    <Compile Include="Core\Entity\Enums\FilterMatchType.cs" />
+    <Compile Include="Core\Entity\DataFilterRule.cs" />
     <Compile Include="Core\Entity\SerialPortEx.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -221,6 +223,15 @@
     </Compile>
     <Compile Include="Windows\Window_VirtualPort.xaml.cs">
       <DependentUpon>Window_VirtualPort.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Window_DataFilter.xaml.cs">
+      <DependentUpon>Window_DataFilter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Window_FilterTest.xaml.cs">
+      <DependentUpon>Window_FilterTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Window_FilterSelect.xaml.cs">
+      <DependentUpon>Window_FilterSelect.xaml</DependentUpon>
     </Compile>
     <Page Include="AvalonEdit\SearchPanel\SearchPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -281,6 +292,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Window_VirtualPort.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Window_DataFilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Window_FilterTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Window_FilterSelect.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

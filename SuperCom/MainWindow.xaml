@@ -116,6 +116,9 @@
                             <MenuItem Click="SaveLog" Header="保存为字符串" />
                             <MenuItem Click="SaveLogAsBin" Header="保存为二进制" />
                             <MenuItem Click="SaveLogAsHex" Header="保存为十六进制" />
+                            <Separator Margin="-20,5,10,5" />
+                            <MenuItem Click="SaveFilteredLog" Header="{DynamicResource SaveFilteredLog}" />
+                            <MenuItem Click="OpenDataFilter" Header="{DynamicResource DataFilterSettings}" />
                         </MenuItem>
                         <Separator Margin="-20,5,10,5" />
                         <MenuItem Click="ExportAllCmd" Header="{DynamicResource ExportConfig}" />
