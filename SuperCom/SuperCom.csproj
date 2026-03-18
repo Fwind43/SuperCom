@@ -174,7 +174,9 @@
     <Compile Include="Core\Entity\Enums\SaveLogType.cs" />
     <Compile Include="Core\Entity\Enums\VarDataType.cs" />
     <Compile Include="Core\Entity\Enums\FilterMatchType.cs" />
+    <Compile Include="Core\Entity\Enums\DataConvertType.cs" />
     <Compile Include="Core\Entity\DataFilterRule.cs" />
+    <Compile Include="Core\Utils\DataConverter.cs" />
     <Compile Include="Core\Entity\SerialPortEx.cs">
       <SubType>Component</SubType>
     </Compile>

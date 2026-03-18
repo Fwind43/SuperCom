@@ -105,5 +105,21 @@
     <sys:String x:Key="NoFilterRules">No filter rules available, please add rules first</sys:String>
     <sys:String x:Key="NoMatchedData">No matched data</sys:String>
 
+    <!-- Data Convert -->
+    <sys:String x:Key="DataConvertType">Data Convert Type</sys:String>
+    <sys:String x:Key="ConvertNone">No Convert</sys:String>
+    <sys:String x:Key="ConvertHexToFloatBE">Hex to Float (Big Endian)</sys:String>
+    <sys:String x:Key="ConvertHexToFloatLE">Hex to Float (Little Endian)</sys:String>
+    <sys:String x:Key="ConvertFloatToHexBE">Float to Hex (Big Endian)</sys:String>
+    <sys:String x:Key="ConvertFloatToHexLE">Float to Hex (Little Endian)</sys:String>
+    <sys:String x:Key="ConvertHexToIntBE">Hex to Int (Big Endian)</sys:String>
+    <sys:String x:Key="ConvertHexToIntLE">Hex to Int (Little Endian)</sys:String>
+    <sys:String x:Key="ConvertIntToHexBE">Int to Hex (Big Endian)</sys:String>
+    <sys:String x:Key="ConvertIntToHexLE">Int to Hex (Little Endian)</sys:String>
+    <sys:String x:Key="ConvertHexToDoubleBE">Hex to Double (Big Endian)</sys:String>
+    <sys:String x:Key="ConvertHexToDoubleLE">Hex to Double (Little Endian)</sys:String>
+    <sys:String x:Key="ConvertDoubleToHexBE">Double to Hex (Big Endian)</sys:String>
+    <sys:String x:Key="ConvertDoubleToHexLE">Double to Hex (Little Endian)</sys:String>
+
 
 </ResourceDictionary>

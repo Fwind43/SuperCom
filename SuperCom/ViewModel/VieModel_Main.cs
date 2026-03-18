@@ -203,6 +203,12 @@ namespace SuperCom.ViewModel
             set { _ShowSoft = value; RaisePropertyChanged(); }
         }
 
+        private ObservableCollection<string> _DataConvertTypes;
+        public ObservableCollection<string> DataConvertTypes {
+            get { return _DataConvertTypes; }
+            set { _DataConvertTypes = value; RaisePropertyChanged(); }
+        }
+
 
         #endregion
 
@@ -223,6 +229,16 @@ namespace SuperCom.ViewModel
             LoadShortCut();
             LoadHandshake();
             LoadHighLightRule();
+            LoadDataConvertTypes();
+        }
+
+        private void LoadDataConvertTypes()
+        {
+            DataConvertTypes = new ObservableCollection<string>();
+            foreach (var type in System.Enum.GetValues(typeof(Core.Entity.Enums.DataConvertType)))
+            {
+                DataConvertTypes.Add(Core.Utils.DataConverter.GetConvertTypeName((Core.Entity.Enums.DataConvertType)type));
+            }
         }
 
         private void InitSendHistory()

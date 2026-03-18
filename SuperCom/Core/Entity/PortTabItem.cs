@@ -247,6 +247,15 @@ namespace SuperCom.Entity
             }
         }
 
+        private int _DataConvertIndex = 0;
+        public int DataConvertIndex {
+            get { return _DataConvertIndex; }
+            set {
+                _DataConvertIndex = value;
+                RaisePropertyChanged();
+            }
+        }
+
         private DateTime _ConnectTime;
         public DateTime ConnectTime {
             get { return _ConnectTime; }

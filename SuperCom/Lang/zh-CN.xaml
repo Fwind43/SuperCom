@@ -105,4 +105,20 @@
     <sys:String x:Key="NoFilterRules">没有可用的筛选规则，请先添加规则</sys:String>
     <sys:String x:Key="NoMatchedData">没有匹配的数据</sys:String>
 
+    <!-- 数据转换 -->
+    <sys:String x:Key="DataConvertType">数据转换格式</sys:String>
+    <sys:String x:Key="ConvertNone">无转换</sys:String>
+    <sys:String x:Key="ConvertHexToFloatBE">Hex转Float(大端)</sys:String>
+    <sys:String x:Key="ConvertHexToFloatLE">Hex转Float(小端)</sys:String>
+    <sys:String x:Key="ConvertFloatToHexBE">Float转Hex(大端)</sys:String>
+    <sys:String x:Key="ConvertFloatToHexLE">Float转Hex(小端)</sys:String>
+    <sys:String x:Key="ConvertHexToIntBE">Hex转Int(大端)</sys:String>
+    <sys:String x:Key="ConvertHexToIntLE">Hex转Int(小端)</sys:String>
+    <sys:String x:Key="ConvertIntToHexBE">Int转Hex(大端)</sys:String>
+    <sys:String x:Key="ConvertIntToHexLE">Int转Hex(小端)</sys:String>
+    <sys:String x:Key="ConvertHexToDoubleBE">Hex转Double(大端)</sys:String>
+    <sys:String x:Key="ConvertHexToDoubleLE">Hex转Double(小端)</sys:String>
+    <sys:String x:Key="ConvertDoubleToHexBE">Double转Hex(大端)</sys:String>
+    <sys:String x:Key="ConvertDoubleToHexLE">Double转Hex(小端)</sys:String>
+
 </ResourceDictionary>
