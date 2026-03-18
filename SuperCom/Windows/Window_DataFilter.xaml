@@ -9,8 +9,8 @@
     xmlns:super="https://github.com/SuperStudio/SuperControls"
     Name="dataFilterWindow"
     Title="{DynamicResource DataFilterTitle}"
-    Width="700"
-    Height="500"
+    Width="750"
+    Height="520"
     Background="{DynamicResource Window.Background}"
     Closing="BaseWindow_Closing"
     Foreground="{DynamicResource Window.Foreground}"
@@ -20,16 +20,42 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <Grid Margin="10">
+    <Grid Margin="12">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+
+        <!-- 标题栏 -->
+        <Border
+            Grid.Row="0"
+            Margin="0,0,0,10"
+            Background="{DynamicResource Window.Side.Background}"
+            CornerRadius="8"
+            Padding="15,10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource Window.Foreground}"
+                    Text="{DynamicResource DataFilterTitle}" />
+                <TextBlock
+                    Margin="15,0,0,0"
+                    VerticalAlignment="Center"
+                    Foreground="{DynamicResource Window.Foreground}"
+                    Opacity="0.6"
+                    Text="{DynamicResource DataFilterDesc}" />
+            </StackPanel>
+        </Border>
 
         <!-- 规则列表 -->
         <Border
+            Grid.Row="1"
             Background="{DynamicResource Window.Side.Background}"
-            CornerRadius="5">
+            CornerRadius="8"
+            Padding="10">
             <DataGrid
                 Name="dataGrid"
                 AutoGenerateColumns="False"
@@ -45,6 +71,25 @@
                 RowBackground="Transparent"
                 SelectedItem="{Binding SelectedRule}"
                 SelectionMode="Single">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Foreground" Value="{DynamicResource Window.Foreground}" />
+                        <Setter Property="Padding" Value="10,8" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="BorderThickness" Value="0,0,0,1" />
+                        <Setter Property="BorderBrush" Value="{DynamicResource DataGrid.HorizontalGridLinesBrush}" />
+                    </Style>
+                    <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="DataGridRow">
+                        <Setter Property="Foreground" Value="{DynamicResource Window.Foreground}" />
+                        <Setter Property="Height" Value="36" />
+                    </Style>
+                    <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="DataGridCell">
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="Padding" Value="5,0" />
+                    </Style>
+                </DataGrid.Resources>
                 <DataGrid.Columns>
                     <DataGridTextColumn
                         Width="*"
@@ -59,20 +104,25 @@
                         Binding="{Binding MatchPattern}"
                         Header="{DynamicResource MatchPattern}" />
                     <DataGridCheckBoxColumn
-                        Width="60"
+                        Width="70"
                         Binding="{Binding IsEnabled, UpdateSourceTrigger=PropertyChanged}"
-                        Header="{DynamicResource Enabled}" />
-                    <DataGridTemplateColumn Width="80">
+                        Header="{DynamicResource Enabled}">
+                        <DataGridCheckBoxColumn.ElementStyle>
+                            <Style TargetType="CheckBox">
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                                <Setter Property="Foreground" Value="{DynamicResource Window.Foreground}" />
+                            </Style>
+                        </DataGridCheckBoxColumn.ElementStyle>
+                    </DataGridCheckBoxColumn>
+                    <DataGridTemplateColumn Width="90">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button
-                                        Margin="2"
-                                        Click="EditRule"
-                                        Content="{DynamicResource Edit}"
-                                        Style="{StaticResource ButtonPrimary}"
-                                        Tag="{Binding RuleID}" />
-                                </StackPanel>
+                                <Button
+                                    Padding="12,4"
+                                    Click="EditRule"
+                                    Content="{DynamicResource Edit}"
+                                    Style="{StaticResource FlatButton}"
+                                    Tag="{Binding RuleID}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -81,37 +131,45 @@
         </Border>
 
         <!-- 底部按钮 -->
-        <StackPanel
-            Grid.Row="1"
+        <Border
+            Grid.Row="2"
             Margin="0,10,0,0"
-            HorizontalAlignment="Right"
-            Orientation="Horizontal">
-            <Button
-                Margin="5"
-                Click="AddRule"
-                Content="{DynamicResource Add}"
-                Style="{StaticResource ButtonPrimary}" />
-            <Button
-                Margin="5"
-                Click="DeleteRule"
-                Content="{DynamicResource Delete}"
-                Style="{StaticResource ButtonDanger}" />
-            <Button
-                Margin="5"
-                Click="TestFilter"
-                Content="{DynamicResource TestFilter}"
-                Style="{StaticResource FlatButton}" />
-            <Button
-                Margin="5"
-                Click="Close"
-                Content="{DynamicResource Close}"
-                Style="{StaticResource FlatButton}" />
-        </StackPanel>
+            Background="{DynamicResource Window.Side.Background}"
+            CornerRadius="8"
+            Padding="10">
+            <StackPanel
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Button
+                    MinWidth="80"
+                    Click="AddRule"
+                    Content="{DynamicResource Add}"
+                    Style="{StaticResource ButtonPrimary}" />
+                <Button
+                    MinWidth="80"
+                    Margin="10,0,0,0"
+                    Click="DeleteRule"
+                    Content="{DynamicResource Delete}"
+                    Style="{StaticResource ButtonDanger}" />
+                <Button
+                    MinWidth="80"
+                    Margin="10,0,0,0"
+                    Click="TestFilter"
+                    Content="{DynamicResource TestFilter}"
+                    Style="{StaticResource FlatButton}" />
+                <Button
+                    MinWidth="80"
+                    Margin="10,0,0,0"
+                    Click="Close"
+                    Content="{DynamicResource Close}"
+                    Style="{StaticResource FlatButton}" />
+            </StackPanel>
+        </Border>
 
         <!-- 编辑弹窗 -->
         <Popup
             x:Name="editPopup"
-            Width="400"
+            Width="450"
             Height="auto"
             AllowsTransparency="True"
             Placement="Center"
@@ -120,79 +178,153 @@
             <Grid Margin="5">
                 <Border
                     Margin="5"
-                    Background="{DynamicResource Menu.Background}"
-                    CornerRadius="5"
+                    Background="{DynamicResource Window.Background}"
+                    CornerRadius="10"
                     Effect="{StaticResource PopupDropShadowEffect}" />
-                <Grid Margin="15">
+                <Grid Margin="20">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
+                    <!-- 弹窗标题 -->
                     <TextBlock
                         Grid.Row="0"
-                        Margin="0,0,0,10"
+                        Margin="0,0,0,15"
+                        FontSize="14"
                         FontWeight="Bold"
+                        Foreground="{DynamicResource Window.Foreground}"
                         Text="{DynamicResource EditFilterRule}" />
 
-                    <DockPanel Grid.Row="1" Margin="0,5">
-                        <TextBlock
-                            Width="80"
-                            VerticalAlignment="Center"
-                            Text="{DynamicResource RuleName}" />
-                        <super:SearchBox Name="txtRuleName" />
-                    </DockPanel>
+                    <!-- 规则名称 -->
+                    <Border
+                        Grid.Row="1"
+                        Margin="0,0,0,10"
+                        Background="{DynamicResource Window.Side.Background}"
+                        CornerRadius="5"
+                        Padding="10,8">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource Window.Foreground}"
+                                Opacity="0.7"
+                                Text="{DynamicResource RuleName}" />
+                            <super:SearchBox
+                                Grid.Column="1"
+                                Name="txtRuleName"
+                                PlaceHolder="{DynamicResource RuleNamePlaceholder}" />
+                        </Grid>
+                    </Border>
 
-                    <DockPanel Grid.Row="2" Margin="0,5">
-                        <TextBlock
-                            Width="80"
-                            VerticalAlignment="Center"
-                            Text="{DynamicResource MatchType}" />
-                        <ComboBox
-                            Name="cmbMatchType"
-                            DisplayMemberPath="Value"
-                            SelectedValuePath="Key"
-                            Style="{StaticResource BorderComboBox}" />
-                    </DockPanel>
+                    <!-- 匹配类型 -->
+                    <Border
+                        Grid.Row="2"
+                        Margin="0,0,0,10"
+                        Background="{DynamicResource Window.Side.Background}"
+                        CornerRadius="5"
+                        Padding="10,8">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource Window.Foreground}"
+                                Opacity="0.7"
+                                Text="{DynamicResource MatchType}" />
+                            <ComboBox
+                                Grid.Column="1"
+                                Name="cmbMatchType"
+                                DisplayMemberPath="Value"
+                                SelectedValuePath="Key"
+                                Style="{StaticResource BorderComboBox}" />
+                        </Grid>
+                    </Border>
 
-                    <DockPanel Grid.Row="3" Margin="0,5">
-                        <TextBlock
-                            Width="80"
-                            VerticalAlignment="Center"
-                            Text="{DynamicResource MatchPattern}" />
-                        <super:SearchBox Name="txtMatchPattern" />
-                    </DockPanel>
+                    <!-- 匹配模式 -->
+                    <Border
+                        Grid.Row="3"
+                        Margin="0,0,0,10"
+                        Background="{DynamicResource Window.Side.Background}"
+                        CornerRadius="5"
+                        Padding="10,8">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                Foreground="{DynamicResource Window.Foreground}"
+                                Opacity="0.7"
+                                Text="{DynamicResource MatchPattern}" />
+                            <super:SearchBox
+                                Grid.Column="1"
+                                Name="txtMatchPattern"
+                                PlaceHolder="{DynamicResource MatchPatternPlaceholder}" />
+                        </Grid>
+                    </Border>
 
-                    <DockPanel Grid.Row="4" Margin="0,5">
-                        <TextBlock
-                            Width="80"
-                            VerticalAlignment="Center"
-                            Text="{DynamicResource Description}" />
-                        <TextBox
-                            Name="txtDescription"
-                            AcceptsReturn="True"
-                            Height="60"
-                            Style="{StaticResource MultiLineTextBox}"
-                            TextWrapping="Wrap"
-                            VerticalScrollBarVisibility="Auto" />
-                    </DockPanel>
+                    <!-- 描述 -->
+                    <Border
+                        Grid.Row="4"
+                        Margin="0,0,0,10"
+                        Background="{DynamicResource Window.Side.Background}"
+                        CornerRadius="5"
+                        Padding="10,8">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Grid.Column="0"
+                                VerticalAlignment="Top"
+                                Margin="0,8,0,0"
+                                Foreground="{DynamicResource Window.Foreground}"
+                                Opacity="0.7"
+                                Text="{DynamicResource Description}" />
+                            <TextBox
+                                Grid.Column="1"
+                                Name="txtDescription"
+                                Height="70"
+                                AcceptsReturn="True"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                CaretBrush="{DynamicResource Window.Foreground}"
+                                Foreground="{DynamicResource Window.Foreground}"
+                                Style="{StaticResource MultiLineTextBox}"
+                                TextWrapping="Wrap"
+                                VerticalScrollBarVisibility="Auto" />
+                        </Grid>
+                    </Border>
 
+                    <!-- 按钮区域 -->
                     <StackPanel
                         Grid.Row="5"
-                        Margin="0,10,0,0"
+                        Margin="0,5,0,0"
                         HorizontalAlignment="Right"
                         Orientation="Horizontal">
                         <Button
-                            Margin="5"
+                            MinWidth="80"
                             Click="SaveRule"
                             Content="{DynamicResource Save}"
                             Style="{StaticResource ButtonPrimary}" />
                         <Button
-                            Margin="5"
+                            MinWidth="80"
+                            Margin="10,0,0,0"
                             Click="CancelEdit"
                             Content="{DynamicResource Cancel}"
                             Style="{StaticResource FlatButton}" />

@@ -84,11 +84,14 @@
     <sys:String x:Key="SaveFilteredLog">Filter Export</sys:String>
     <sys:String x:Key="DataFilterSettings">Filter Settings</sys:String>
     <sys:String x:Key="RuleName">Rule Name</sys:String>
+    <sys:String x:Key="RuleNamePlaceholder">Enter rule name</sys:String>
     <sys:String x:Key="MatchType">Match Type</sys:String>
     <sys:String x:Key="MatchPattern">Match Pattern</sys:String>
+    <sys:String x:Key="MatchPatternPlaceholder">Enter match pattern</sys:String>
     <sys:String x:Key="Enabled">Enabled</sys:String>
     <sys:String x:Key="EditFilterRule">Edit Filter Rule</sys:String>
     <sys:String x:Key="Description">Description</sys:String>
+    <sys:String x:Key="DataFilterDesc">Configure filter rules for exporting filtered logs</sys:String>
     <sys:String x:Key="MatchTypeKeyword">Keyword</sys:String>
     <sys:String x:Key="MatchTypeRegex">Regex</sys:String>
     <sys:String x:Key="MatchTypeHexPattern">Hex Pattern</sys:String>

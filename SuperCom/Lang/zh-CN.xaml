@@ -84,11 +84,14 @@
     <sys:String x:Key="SaveFilteredLog">筛选导出</sys:String>
     <sys:String x:Key="DataFilterSettings">筛选规则设置</sys:String>
     <sys:String x:Key="RuleName">规则名称</sys:String>
+    <sys:String x:Key="RuleNamePlaceholder">请输入规则名称</sys:String>
     <sys:String x:Key="MatchType">匹配类型</sys:String>
     <sys:String x:Key="MatchPattern">匹配模式</sys:String>
+    <sys:String x:Key="MatchPatternPlaceholder">请输入匹配模式</sys:String>
     <sys:String x:Key="Enabled">启用</sys:String>
     <sys:String x:Key="EditFilterRule">编辑筛选规则</sys:String>
     <sys:String x:Key="Description">描述</sys:String>
+    <sys:String x:Key="DataFilterDesc">配置数据筛选规则，用于导出筛选后的日志</sys:String>
     <sys:String x:Key="MatchTypeKeyword">关键字</sys:String>
     <sys:String x:Key="MatchTypeRegex">正则表达式</sys:String>
     <sys:String x:Key="MatchTypeHexPattern">十六进制模式</sys:String>
