@@ -4,6 +4,7 @@ using ITLDG.DataCheck;
 using Newtonsoft.Json.Linq;
 using SuperCom.Config;
 using SuperCom.Config.WindowConfig;
+using SuperCom.Core.Entity;
 using SuperCom.Core.Entity.Enums;
 using SuperCom.Core.Utils;
 using SuperControls.Style;
@@ -354,14 +355,22 @@ namespace SuperCom.Entity
 
                 }
                 if (allData.Count > 0) {
+                    byte[] receivedData = allData.ToArray();
+
+                    // 应用数据包过滤
+                    if (EnabledFilter && ShouldFilterPacket(receivedData)) {
+                        // 数据被过滤，不处理
+                        continue;
+                    }
+
                     App.GetDispatcher()?.Invoke(() => {
                         RX += allData.Count;
                         if (RecvShowHex) {
                             // HEX 模式
-                            SaveHex(allData.ToArray(), HexRecvTime.ToLocalDate());
+                            SaveHex(receivedData, HexRecvTime.ToLocalDate());
                         } else {
                             // STR 模式
-                            SaveData(SerialPort.Encoding.GetString(allData.ToArray()), HexRecvTime.ToLocalDate());
+                            SaveData(SerialPort.Encoding.GetString(receivedData), HexRecvTime.ToLocalDate());
                         }
 
                     });
@@ -825,6 +834,35 @@ namespace SuperCom.Entity
         {
             _IsClose = false;
             new Thread(ReadTask).Start();
+        }
+
+        /// <summary>
+        /// 检查数据包是否应该被过滤
+        /// </summary>
+        /// <param name="data">接收到的数据</param>
+        /// <returns>true表示应该过滤掉（丢弃），false表示保留</returns>
+        private bool ShouldFilterPacket(byte[] data)
+        {
+            if (data == null || data.Length == 0)
+                return false;
+
+            // 加载规则（如果还没有加载）
+            if (PacketFilterRule.AllRules == null || PacketFilterRule.AllRules.Count == 0)
+            {
+                PacketFilterRule.LoadAllRules();
+            }
+
+            // 检查所有启用的规则
+            foreach (var rule in PacketFilterRule.AllRules)
+            {
+                if (!rule.IsEnabled)
+                    continue;
+
+                if (rule.ShouldFilter(data))
+                    return true;
+            }
+
+            return false;
         }
     }
 
