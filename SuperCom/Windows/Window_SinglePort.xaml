@@ -21,7 +21,7 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <Grid Margin="5">
+    <Grid Margin="8">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -31,10 +31,11 @@
         <!-- 顶部状态栏 -->
         <Border
             Grid.Row="0"
-            Margin="0,0,0,5"
+            Margin="0,0,0,8"
             Background="{DynamicResource Window.Side.Background}"
-            CornerRadius="5">
-            <Grid Margin="10,5">
+            CornerRadius="8"
+            Padding="15,8">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
@@ -46,65 +47,72 @@
 
                 <StackPanel
                     Grid.Column="0"
-                    Margin="0,0,15,0"
+                    Margin="0,0,20,0"
                     Orientation="Horizontal">
                     <TextBlock
                         VerticalAlignment="Center"
-                        Style="{StaticResource BaseTextBlock}"
+                        Foreground="{DynamicResource Window.Foreground}"
+                        Opacity="0.7"
                         Text="{DynamicResource Port}" />
                     <TextBlock
                         Margin="5,0,0,0"
                         VerticalAlignment="Center"
                         FontWeight="Bold"
+                        Foreground="{DynamicResource Window.Foreground}"
                         Text="{Binding PortName}" />
                 </StackPanel>
 
                 <StackPanel
                     Grid.Column="1"
-                    Margin="0,0,15,0"
+                    Margin="0,0,20,0"
                     Orientation="Horizontal">
                     <TextBlock
                         VerticalAlignment="Center"
-                        Style="{StaticResource BaseTextBlock}"
+                        Foreground="{DynamicResource Window.Foreground}"
+                        Opacity="0.7"
                         Text="{DynamicResource Status}" />
                     <TextBlock
                         Margin="5,0,0,0"
                         VerticalAlignment="Center"
                         FontWeight="Bold"
-                        Foreground="{Binding StatusColor}"
                         Text="{Binding StatusText}" />
                 </StackPanel>
 
                 <StackPanel
                     Grid.Column="2"
-                    Margin="0,0,15,0"
+                    Margin="0,0,20,0"
                     Orientation="Horizontal">
                     <TextBlock
                         VerticalAlignment="Center"
-                        Style="{StaticResource BaseTextBlock}"
+                        Foreground="#4CAF50"
+                        FontWeight="Medium"
                         Text="RX:" />
                     <TextBlock
                         Margin="5,0,0,0"
                         VerticalAlignment="Center"
+                        Foreground="{DynamicResource Window.Foreground}"
                         Text="{Binding RX, StringFormat={}{0:N0}}" />
                 </StackPanel>
 
                 <StackPanel
                     Grid.Column="3"
-                    Margin="0,0,15,0"
+                    Margin="0,0,20,0"
                     Orientation="Horizontal">
                     <TextBlock
                         VerticalAlignment="Center"
-                        Style="{StaticResource BaseTextBlock}"
+                        Foreground="#2196F3"
+                        FontWeight="Medium"
                         Text="TX:" />
                     <TextBlock
                         Margin="5,0,0,0"
                         VerticalAlignment="Center"
+                        Foreground="{DynamicResource Window.Foreground}"
                         Text="{Binding TX, StringFormat={}{0:N0}}" />
                 </StackPanel>
 
                 <Button
                     Grid.Column="5"
+                    MinWidth="80"
                     Click="ToggleConnect"
                     Content="{Binding ConnectButtonText}"
                     Style="{StaticResource ButtonPrimary}" />
@@ -115,99 +123,139 @@
         <Border
             Grid.Row="1"
             Background="{DynamicResource Window.Side.Background}"
-            CornerRadius="5">
-            <Grid Margin="5">
+            CornerRadius="8"
+            Padding="8">
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <!-- 工具栏 -->
-                <StackPanel
+                <Border
                     Grid.Row="0"
-                    Margin="0,0,0,5"
-                    Orientation="Horizontal">
-                    <Button
-                        Margin="0,0,5,0"
-                        Click="ClearData"
-                        Content="{DynamicResource Clear}"
-                        Style="{StaticResource FlatButton}" />
-                    <CheckBox
-                        Margin="5,0"
-                        Content="{DynamicResource ShowHex}"
-                        IsChecked="{Binding RecvShowHex}"
-                        Style="{StaticResource NormalCheckBox}" />
-                    <CheckBox
-                        Margin="5,0"
-                        Content="{DynamicResource ShowTimeStamp}"
-                        IsChecked="{Binding AddTimeStamp}"
-                        Style="{StaticResource NormalCheckBox}" />
-                    <Button
-                        Margin="5,0,0,0"
-                        Click="ExportData"
-                        Content="{DynamicResource Export}"
-                        Style="{StaticResource FlatButton}" />
-                </StackPanel>
+                    Margin="0,0,0,8"
+                    Background="{DynamicResource Window.Title.Background}"
+                    CornerRadius="5"
+                    Padding="8,5">
+                    <StackPanel Orientation="Horizontal">
+                        <Button
+                            Margin="0,0,8,0"
+                            Padding="12,4"
+                            Click="ClearData"
+                            Content="{DynamicResource Clear}"
+                            Style="{StaticResource FlatButton}" />
+                        <Separator
+                            Width="1"
+                            Margin="0,0,8,0"
+                            Background="{DynamicResource Window.Foreground}"
+                            Opacity="0.2" />
+                        <CheckBox
+                            Margin="0,0,12,0"
+                            VerticalAlignment="Center"
+                            Content="{DynamicResource ShowHex}"
+                            Foreground="{DynamicResource Window.Foreground}"
+                            IsChecked="{Binding RecvShowHex}"
+                            Style="{StaticResource NormalCheckBox}" />
+                        <CheckBox
+                            Margin="0,0,12,0"
+                            VerticalAlignment="Center"
+                            Content="{DynamicResource ShowTimeStamp}"
+                            Foreground="{DynamicResource Window.Foreground}"
+                            IsChecked="{Binding AddTimeStamp}"
+                            Style="{StaticResource NormalCheckBox}" />
+                        <Separator
+                            Width="1"
+                            Margin="0,0,8,0"
+                            Background="{DynamicResource Window.Foreground}"
+                            Opacity="0.2" />
+                        <Button
+                            Padding="12,4"
+                            Click="ExportData"
+                            Content="{DynamicResource Export}"
+                            Style="{StaticResource FlatButton}" />
+                    </StackPanel>
+                </Border>
 
                 <!-- 文本编辑器 -->
-                <avalonedit:TextEditor
-                    Name="textEditor"
+                <Border
                     Grid.Row="1"
-                    Margin="0"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    FontFamily="Consolas"
-                    FontSize="12"
-                    HorizontalScrollBarVisibility="Auto"
-                    IsReadOnly="True"
-                    ShowLineNumbers="True"
-                    VerticalScrollBarVisibility="Auto"
-                    WordWrap="True" />
+                    Background="{DynamicResource Window.Title.Background}"
+                    CornerRadius="5">
+                    <avalonedit:TextEditor
+                        Name="textEditor"
+                        Margin="5"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        FontFamily="Consolas"
+                        FontSize="13"
+                        Foreground="{DynamicResource Window.Foreground}"
+                        HorizontalScrollBarVisibility="Auto"
+                        IsReadOnly="True"
+                        ShowLineNumbers="True"
+                        VerticalScrollBarVisibility="Auto"
+                        WordWrap="True" />
+                </Border>
             </Grid>
         </Border>
 
         <!-- 发送区域 -->
         <Border
             Grid.Row="2"
-            Margin="0,5,0,0"
+            Margin="0,8,0,0"
             Background="{DynamicResource Window.Side.Background}"
-            CornerRadius="5">
-            <Grid Margin="5">
+            CornerRadius="8"
+            Padding="8">
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
                 <!-- 发送选项 -->
-                <StackPanel
+                <Border
                     Grid.Row="0"
-                    Margin="0,0,0,5"
-                    Orientation="Horizontal">
-                    <CheckBox
-                        Margin="0,0,10,0"
-                        Content="{DynamicResource SendHex}"
-                        IsChecked="{Binding SendHex}"
-                        Style="{StaticResource NormalCheckBox}" />
-                    <CheckBox
-                        Margin="0,0,10,0"
-                        Content="{DynamicResource AddNewLine}"
-                        IsChecked="{Binding AddNewLineWhenWrite}"
-                        Style="{StaticResource NormalCheckBox}" />
+                    Margin="0,0,0,8"
+                    Background="{DynamicResource Window.Title.Background}"
+                    CornerRadius="5"
+                    Padding="8,5">
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox
+                            Margin="0,0,15,0"
+                            VerticalAlignment="Center"
+                            Content="{DynamicResource SendHex}"
+                            Foreground="{DynamicResource Window.Foreground}"
+                            IsChecked="{Binding SendHex}"
+                            Style="{StaticResource NormalCheckBox}" />
+                        <CheckBox
+                            Margin="0,0,15,0"
+                            VerticalAlignment="Center"
+                            Content="{DynamicResource AddNewLine}"
+                            Foreground="{DynamicResource Window.Foreground}"
+                            IsChecked="{Binding AddNewLineWhenWrite}"
+                            Style="{StaticResource NormalCheckBox}" />
 
-                    <!-- 进制转换下拉框 -->
-                    <TextBlock
-                        Margin="10,0,5,0"
-                        VerticalAlignment="Center"
-                        Style="{StaticResource BaseTextBlock}"
-                        Text="{DynamicResource ConvertFormat}" />
-                    <ComboBox
-                        Width="150"
-                        DisplayMemberPath="Value"
-                        ItemsSource="{Binding DataConvertTypes}"
-                        SelectedIndex="{Binding DataConvertIndex}"
-                        SelectedValuePath="Key"
-                        Style="{StaticResource BaseComboBox}" />
-                </StackPanel>
+                        <!-- 进制转换下拉框 -->
+                        <Separator
+                            Width="1"
+                            Margin="0,0,15,0"
+                            Background="{DynamicResource Window.Foreground}"
+                            Opacity="0.2" />
+                        <TextBlock
+                            Margin="0,0,8,0"
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource Window.Foreground}"
+                            Opacity="0.7"
+                            Text="{DynamicResource ConvertFormat}" />
+                        <ComboBox
+                            Width="160"
+                            DisplayMemberPath="Value"
+                            ItemsSource="{Binding DataConvertTypes}"
+                            SelectedIndex="{Binding DataConvertIndex}"
+                            SelectedValuePath="Key"
+                            Style="{StaticResource BaseComboBox}" />
+                    </StackPanel>
+                </Border>
 
                 <!-- 发送输入框 -->
                 <Grid Grid.Row="1">
@@ -216,15 +264,23 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <TextBox
-                        Name="sendTextBox"
+                    <Border
                         Grid.Column="0"
-                        Margin="0,0,5,0"
-                        AcceptsReturn="True"
-                        Style="{StaticResource BaseTextBox}"
-                        Text="{Binding WriteData, UpdateSourceTrigger=PropertyChanged}"
-                        TextWrapping="Wrap"
-                        VerticalScrollBarVisibility="Auto" />
+                        Margin="0,0,8,0"
+                        Background="{DynamicResource Window.Title.Background}"
+                        CornerRadius="5">
+                        <TextBox
+                            Name="sendTextBox"
+                            Margin="8"
+                            AcceptsReturn="True"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            CaretBrush="{DynamicResource Window.Foreground}"
+                            Foreground="{DynamicResource Window.Foreground}"
+                            Text="{Binding WriteData, UpdateSourceTrigger=PropertyChanged}"
+                            TextWrapping="Wrap"
+                            VerticalScrollBarVisibility="Auto" />
+                    </Border>
 
                     <Button
                         Grid.Column="1"
