@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 
@@ -35,6 +36,7 @@ namespace SuperCom.Windows
         public bool AddNewLineWhenWrite { get; set; }
         public string WriteData { get; set; }
         public int DataConvertIndex { get; set; }
+        public bool FixedText { get; set; }
         public ObservableCollection<KeyValuePair<int, string>> DataConvertTypes { get; set; }
 
         public Window_SinglePort()
@@ -93,6 +95,7 @@ namespace SuperCom.Windows
             AddNewLineWhenWrite = _portTabItem.AddNewLineWhenWrite;
             WriteData = _portTabItem.WriteData;
             DataConvertIndex = _portTabItem.DataConvertIndex;
+            FixedText = _portTabItem.FixedText;
 
             UpdateStatus();
             OnPropertyChanged(nameof(Connected));
@@ -104,6 +107,7 @@ namespace SuperCom.Windows
             OnPropertyChanged(nameof(AddNewLineWhenWrite));
             OnPropertyChanged(nameof(WriteData));
             OnPropertyChanged(nameof(DataConvertIndex));
+            OnPropertyChanged(nameof(FixedText));
         }
 
         private void SyncToPortTabItem()
@@ -116,6 +120,7 @@ namespace SuperCom.Windows
             _portTabItem.AddNewLineWhenWrite = AddNewLineWhenWrite;
             _portTabItem.WriteData = WriteData;
             _portTabItem.DataConvertIndex = DataConvertIndex;
+            _portTabItem.FixedText = FixedText;
         }
 
         private void UpdateStatus()
@@ -221,7 +226,52 @@ namespace SuperCom.Windows
             _portTabItem.SendCommand(WriteData);
         }
 
-        private void ExportData(object sender, RoutedEventArgs e)
+        private void SendTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && !Keyboard.Modifiers.HasFlag(ModifierKeys.Shift))
+            {
+                SendData(sender, e);
+                e.Handled = true;
+            }
+        }
+
+        private void OpenPath(object sender, RoutedEventArgs e)
+        {
+            if (_portTabItem == null) return;
+
+            string logDir = _portTabItem.GetLogDir();
+            if (!string.IsNullOrEmpty(logDir))
+            {
+                try
+                {
+                    System.Diagnostics.Process.Start("explorer.exe", logDir);
+                }
+                catch (Exception ex)
+                {
+                    MessageNotify.Error(ex.Message);
+                }
+            }
+        }
+
+        private void OpenByDefaultApp(object sender, RoutedEventArgs e)
+        {
+            if (_portTabItem == null) return;
+
+            string fileName = _portTabItem.SaveFileName;
+            if (!string.IsNullOrEmpty(fileName))
+            {
+                try
+                {
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(fileName) { UseShellExecute = true });
+                }
+                catch (Exception ex)
+                {
+                    MessageNotify.Error(ex.Message);
+                }
+            }
+        }
+
+        private void SaveToNewFile(object sender, RoutedEventArgs e)
         {
             if (_portTabItem == null) return;
 
