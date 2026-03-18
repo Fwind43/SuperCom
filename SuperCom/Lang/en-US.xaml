@@ -71,6 +71,10 @@
     <sys:String x:Key="PinOnFocus">Pin On Focus</sys:String>
     <sys:String x:Key="PinOnMouseWheel">Mouse rolling decision fixed</sys:String>
     <sys:String x:Key="ConnectAll">Connect All</sys:String>
+    <sys:String x:Key="Connect">Connect</sys:String>
+    <sys:String x:Key="Disconnect">Disconnect</sys:String>
+    <sys:String x:Key="Connected">Connected</sys:String>
+    <sys:String x:Key="Disconnected">Disconnected</sys:String>
     <sys:String x:Key="NewLineMode">NewLine Mode</sys:String>
     <sys:String x:Key="SendPrefix">Send Prefix</sys:String>
         <sys:String x:Key="TextEditorIsReadOnly">Log editing is prohibited</sys:String>
