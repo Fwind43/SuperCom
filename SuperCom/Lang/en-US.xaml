@@ -121,5 +121,13 @@
     <sys:String x:Key="ConvertDoubleToHexBE">Double to Hex (Big Endian)</sys:String>
     <sys:String x:Key="ConvertDoubleToHexLE">Double to Hex (Little Endian)</sys:String>
 
+    <!-- Packet Filter -->
+    <sys:String x:Key="PacketFilterTitle">Packet Filter Rules</sys:String>
+    <sys:String x:Key="PacketFilterSettings">Packet Filter Settings</sys:String>
+    <sys:String x:Key="EditPacketFilterRule">Edit Filter Rule</sys:String>
+    <sys:String x:Key="FilterAction">Filter Action</sys:String>
+    <sys:String x:Key="FilterActionKeep">Keep</sys:String>
+    <sys:String x:Key="FilterActionDiscard">Discard</sys:String>
+
 
 </ResourceDictionary>

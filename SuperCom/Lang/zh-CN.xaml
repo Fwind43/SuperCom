@@ -121,4 +121,12 @@
     <sys:String x:Key="ConvertDoubleToHexBE">Double转Hex(大端)</sys:String>
     <sys:String x:Key="ConvertDoubleToHexLE">Double转Hex(小端)</sys:String>
 
+    <!-- 数据包过滤 -->
+    <sys:String x:Key="PacketFilterTitle">数据包过滤规则</sys:String>
+    <sys:String x:Key="PacketFilterSettings">数据包过滤设置</sys:String>
+    <sys:String x:Key="EditPacketFilterRule">编辑过滤规则</sys:String>
+    <sys:String x:Key="FilterAction">过滤动作</sys:String>
+    <sys:String x:Key="FilterActionKeep">保留</sys:String>
+    <sys:String x:Key="FilterActionDiscard">丢弃</sys:String>
+
 </ResourceDictionary>

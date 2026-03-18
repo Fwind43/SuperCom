@@ -175,7 +175,9 @@
     <Compile Include="Core\Entity\Enums\VarDataType.cs" />
     <Compile Include="Core\Entity\Enums\FilterMatchType.cs" />
     <Compile Include="Core\Entity\Enums\DataConvertType.cs" />
+    <Compile Include="Core\Entity\Enums\FilterAction.cs" />
     <Compile Include="Core\Entity\DataFilterRule.cs" />
+    <Compile Include="Core\Entity\PacketFilterRule.cs" />
     <Compile Include="Core\Utils\DataConverter.cs" />
     <Compile Include="Core\Entity\SerialPortEx.cs">
       <SubType>Component</SubType>
@@ -234,6 +236,9 @@
     </Compile>
     <Compile Include="Windows\Window_FilterSelect.xaml.cs">
       <DependentUpon>Window_FilterSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Window_PacketFilter.xaml.cs">
+      <DependentUpon>Window_PacketFilter.xaml</DependentUpon>
     </Compile>
     <Page Include="AvalonEdit\SearchPanel\SearchPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -306,6 +311,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Window_FilterSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Window_PacketFilter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

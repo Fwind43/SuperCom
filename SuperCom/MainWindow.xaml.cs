@@ -314,6 +314,7 @@ namespace SuperCom
             ShortCutBinding.InitSqlite();
             VarMonitor.InitSqlite();
             DataFilterRule.InitSqlite();
+            PacketFilterRule.InitSqlite();
         }
 
 
@@ -2994,6 +2995,13 @@ namespace SuperCom
             Window_DataFilter dataFilter = new Window_DataFilter();
             dataFilter.Owner = this;
             dataFilter.Show();
+        }
+
+        private void OpenPacketFilter(object sender, RoutedEventArgs e)
+        {
+            Window_PacketFilter packetFilter = new Window_PacketFilter();
+            packetFilter.Owner = this;
+            packetFilter.Show();
         }
 
 
