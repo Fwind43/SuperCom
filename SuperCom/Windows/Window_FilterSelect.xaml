@@ -8,8 +8,8 @@
     xmlns:super="https://github.com/SuperStudio/SuperControls"
     Name="filterSelectWindow"
     Title="{DynamicResource SelectFilterRule}"
-    Width="400"
-    Height="300"
+    Width="420"
+    Height="320"
     Background="{DynamicResource Window.Background}"
     Foreground="{DynamicResource Window.Foreground}"
     Icon="pack://application:,,,/Resources/Ico/ICON.ico"
@@ -17,41 +17,76 @@
     WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">
 
-    <Grid Margin="10">
+    <Grid Margin="12">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
+        <!-- 标题 -->
         <Border
+            Grid.Row="0"
+            Margin="0,0,0,10"
             Background="{DynamicResource Window.Side.Background}"
-            CornerRadius="5">
+            CornerRadius="8"
+            Padding="15,10">
+            <TextBlock
+                FontSize="14"
+                FontWeight="Bold"
+                Foreground="{DynamicResource Window.Foreground}"
+                Text="{DynamicResource SelectFilterRule}" />
+        </Border>
+
+        <!-- 规则列表 -->
+        <Border
+            Grid.Row="1"
+            Background="{DynamicResource Window.Side.Background}"
+            CornerRadius="8"
+            Padding="8">
             <ListBox
                 Name="listBox"
                 DisplayMemberPath="RuleName"
                 ItemsSource="{Binding FilterRules}"
-                SelectedItem="{Binding SelectedRule}"
-                Style="{StaticResource NormalListBox}"
-                ItemContainerStyle="{StaticResource NormalListBoxItem}" />
+                SelectedItem="{Binding SelectedRule}">
+                <ListBox.Resources>
+                    <Style BasedOn="{StaticResource NormalListBox}" TargetType="ListBox">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="BorderThickness" Value="0" />
+                    </Style>
+                    <Style BasedOn="{StaticResource NormalListBoxItem}" TargetType="ListBoxItem">
+                        <Setter Property="Foreground" Value="{DynamicResource Window.Foreground}" />
+                        <Setter Property="Padding" Value="10,8" />
+                        <Setter Property="Margin" Value="2" />
+                    </Style>
+                </ListBox.Resources>
+            </ListBox>
         </Border>
 
-        <StackPanel
-            Grid.Row="1"
+        <!-- 底部按钮 -->
+        <Border
+            Grid.Row="2"
             Margin="0,10,0,0"
-            HorizontalAlignment="Right"
-            Orientation="Horizontal">
-            <Button
-                Margin="5"
-                Click="Confirm"
-                Content="{DynamicResource Confirm}"
-                IsDefault="True"
-                Style="{StaticResource ButtonPrimary}" />
-            <Button
-                Margin="5"
-                Click="Cancel"
-                Content="{DynamicResource Cancel}"
-                IsCancel="True"
-                Style="{StaticResource FlatButton}" />
-        </StackPanel>
+            Background="{DynamicResource Window.Side.Background}"
+            CornerRadius="8"
+            Padding="10">
+            <StackPanel
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Button
+                    MinWidth="80"
+                    Click="Confirm"
+                    Content="{DynamicResource Confirm}"
+                    IsDefault="True"
+                    Style="{StaticResource ButtonPrimary}" />
+                <Button
+                    MinWidth="80"
+                    Margin="10,0,0,0"
+                    Click="Cancel"
+                    Content="{DynamicResource Cancel}"
+                    IsCancel="True"
+                    Style="{StaticResource FlatButton}" />
+            </StackPanel>
+        </Border>
     </Grid>
 </super:BaseWindow>
