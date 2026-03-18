@@ -137,6 +137,5 @@
     <sys:String x:Key="SendHex">发送Hex</sys:String>
     <sys:String x:Key="AddNewLine">添加换行</sys:String>
     <sys:String x:Key="ConvertFormat">转换格式</sys:String>
-    <sys:String x:Key="ConvertNone">不转换</sys:String>
 
 </ResourceDictionary>

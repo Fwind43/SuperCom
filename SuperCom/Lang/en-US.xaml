@@ -137,7 +137,6 @@
     <sys:String x:Key="SendHex">Send Hex</sys:String>
     <sys:String x:Key="AddNewLine">Add Newline</sys:String>
     <sys:String x:Key="ConvertFormat">Convert Format</sys:String>
-    <sys:String x:Key="ConvertNone">No Convert</sys:String>
 
 
 </ResourceDictionary>
