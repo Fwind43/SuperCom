@@ -12,6 +12,12 @@ namespace SuperCom.Config.WindowConfig
         private const int DEFAULT_SEARCH_DELAY_MS = 500; // MB
         private const float DEFAULT_SEARCH_OPACITY = 1.0F;
         private const string SEND_PREFIX = "SEND >>>>>>>>>> ";
+
+        // 默认超时设置
+        private const int DEFAULT_READ_TIMEOUT = 2000;    // ms
+        private const int DEFAULT_WRITE_TIMEOUT = 1000;   // ms
+        private const int DEFAULT_SUBCONTRACTING_TIMEOUT = 10; // ms
+
         private Settings() : base(ConfigManager.SQLITE_DATA_PATH, $"WindowConfig.Settings")
         {
             Width = SystemParameters.WorkArea.Width * 0.7;
@@ -31,6 +37,11 @@ namespace SuperCom.Config.WindowConfig
             EnabledSendPrefix = true;
             SearchOpacity = DEFAULT_SEARCH_OPACITY;
             SearchDelayMs = DEFAULT_SEARCH_DELAY_MS;
+
+            // 初始化超时设置
+            DefaultReadTimeout = DEFAULT_READ_TIMEOUT;
+            DefaultWriteTimeout = DEFAULT_WRITE_TIMEOUT;
+            DefaultSubcontractingTimeout = DEFAULT_SUBCONTRACTING_TIMEOUT;
         }
 
         public static List<int> BackUpPeriods = new List<int> { 1, 3, 7, 15, 30 };
@@ -127,5 +138,45 @@ namespace SuperCom.Config.WindowConfig
                 RaisePropertyChanged();
             }
         }
+
+        #region 超时设置
+
+        private long _DefaultReadTimeout { get; set; }
+        /// <summary>
+        /// 默认读超时（毫秒）
+        /// </summary>
+        public long DefaultReadTimeout {
+            get { return _DefaultReadTimeout; }
+            set {
+                _DefaultReadTimeout = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private long _DefaultWriteTimeout { get; set; }
+        /// <summary>
+        /// 默认写超时（毫秒）
+        /// </summary>
+        public long DefaultWriteTimeout {
+            get { return _DefaultWriteTimeout; }
+            set {
+                _DefaultWriteTimeout = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private long _DefaultSubcontractingTimeout { get; set; }
+        /// <summary>
+        /// 默认分包超时（毫秒）
+        /// </summary>
+        public long DefaultSubcontractingTimeout {
+            get { return _DefaultSubcontractingTimeout; }
+            set {
+                _DefaultSubcontractingTimeout = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        #endregion
     }
 }

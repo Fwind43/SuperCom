@@ -107,7 +107,7 @@ namespace SuperCom.Entity
             set { _FilterSelectedIndex = value; RaisePropertyChanged(); }
         }
 
-        private long _ReadTimeoutValue = PortSetting.DEFAULT_READ_TIME_OUT;
+        private long _ReadTimeoutValue = Config.ConfigManager.Settings?.DefaultReadTimeout ?? PortSetting.DEFAULT_READ_TIME_OUT;
         public long ReadTimeoutValue {
             get { return _ReadTimeoutValue; }
             set {
@@ -119,7 +119,7 @@ namespace SuperCom.Entity
             }
         }
 
-        private long _WriteTimeoutValue = PortSetting.DEFAULT_WRITE_TIME_OUT;
+        private long _WriteTimeoutValue = Config.ConfigManager.Settings?.DefaultWriteTimeout ?? PortSetting.DEFAULT_WRITE_TIME_OUT;
         public long WriteTimeoutValue {
             get { return _WriteTimeoutValue; }
             set {
@@ -130,7 +130,7 @@ namespace SuperCom.Entity
             }
         }
 
-        private int _SubcontractingTimeoutValue = PortSetting.DEFAULT_SUBCONTRACTING_TIME_OUT;
+        private int _SubcontractingTimeoutValue = (int)(Config.ConfigManager.Settings?.DefaultSubcontractingTimeout ?? PortSetting.DEFAULT_SUBCONTRACTING_TIME_OUT);
         public int SubcontractingTimeoutValue {
             get { return _SubcontractingTimeoutValue; }
             set {

@@ -338,6 +338,81 @@
                             </StackPanel>
                         </StackPanel>
                     </Grid>
+
+                    <!-- 超时设置 -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock
+                            Margin="20,15,40,0"
+                            Style="{StaticResource SettingTitleStyle}"
+                            Text="{DynamicResource TimeoutSettings}" />
+
+                        <StackPanel
+                            Grid.Column="1"
+                            Margin="15,10"
+                            HorizontalAlignment="Left"
+                            Orientation="Vertical">
+
+                            <!-- 读超时 -->
+                            <StackPanel Margin="0,5" Orientation="Horizontal">
+                                <TextBlock
+                                    Width="100"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource BaseTextBlock}"
+                                    Text="{DynamicResource ReadTimeout}" />
+                                <super:SearchBox
+                                    Width="100"
+                                    Margin="10,0"
+                                    Style="{StaticResource SearchTextBoxStyle}"
+                                    Text="{Binding DefaultReadTimeout, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Source={x:Static config:ConfigManager.Settings}}" />
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource BaseTextBlock}"
+                                    Text="ms" />
+                            </StackPanel>
+
+                            <!-- 写超时 -->
+                            <StackPanel Margin="0,5" Orientation="Horizontal">
+                                <TextBlock
+                                    Width="100"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource BaseTextBlock}"
+                                    Text="{DynamicResource WriteTimeout}" />
+                                <super:SearchBox
+                                    Width="100"
+                                    Margin="10,0"
+                                    Style="{StaticResource SearchTextBoxStyle}"
+                                    Text="{Binding DefaultWriteTimeout, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Source={x:Static config:ConfigManager.Settings}}" />
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource BaseTextBlock}"
+                                    Text="ms" />
+                            </StackPanel>
+
+                            <!-- 分包超时 -->
+                            <StackPanel Margin="0,5" Orientation="Horizontal">
+                                <TextBlock
+                                    Width="100"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource BaseTextBlock}"
+                                    Text="{DynamicResource SubcontractingTimeout}" />
+                                <super:SearchBox
+                                    Width="100"
+                                    Margin="10,0"
+                                    Style="{StaticResource SearchTextBoxStyle}"
+                                    Text="{Binding DefaultSubcontractingTimeout, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Source={x:Static config:ConfigManager.Settings}}" />
+                                <TextBlock
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource BaseTextBlock}"
+                                    Text="ms" />
+                            </StackPanel>
+
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
             </TabItem>
 
