@@ -136,12 +136,12 @@
                         Margin="5,0"
                         Content="{DynamicResource ShowHex}"
                         IsChecked="{Binding RecvShowHex}"
-                        Style="{StaticResource BaseCheckBox}" />
+                        Style="{StaticResource NormalCheckBox}" />
                     <CheckBox
                         Margin="5,0"
                         Content="{DynamicResource ShowTimeStamp}"
                         IsChecked="{Binding AddTimeStamp}"
-                        Style="{StaticResource BaseCheckBox}" />
+                        Style="{StaticResource NormalCheckBox}" />
                     <Button
                         Margin="5,0,0,0"
                         Click="ExportData"
@@ -188,12 +188,12 @@
                         Margin="0,0,10,0"
                         Content="{DynamicResource SendHex}"
                         IsChecked="{Binding SendHex}"
-                        Style="{StaticResource BaseCheckBox}" />
+                        Style="{StaticResource NormalCheckBox}" />
                     <CheckBox
                         Margin="0,0,10,0"
                         Content="{DynamicResource AddNewLine}"
                         IsChecked="{Binding AddNewLineWhenWrite}"
-                        Style="{StaticResource BaseCheckBox}" />
+                        Style="{StaticResource NormalCheckBox}" />
 
                     <!-- 进制转换下拉框 -->
                     <TextBlock
