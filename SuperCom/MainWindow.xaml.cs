@@ -3004,6 +3004,13 @@ namespace SuperCom
             packetFilter.Show();
         }
 
+        private void OpenHexConverter(object sender, RoutedEventArgs e)
+        {
+            Window_HexConverter hexConverter = new Window_HexConverter();
+            hexConverter.Owner = this;
+            hexConverter.Show();
+        }
+
         private void OpenSinglePortWindow(object sender, RoutedEventArgs e)
         {
             if (vieModel?.PortTabItems == null || vieModel.PortTabItems.Count == 0)

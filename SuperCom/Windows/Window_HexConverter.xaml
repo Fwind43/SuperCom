@@ -1,0 +1,169 @@
+<super:BaseWindow
+    x:Class="SuperCom.Windows.Window_HexConverter"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SuperCom.Windows"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:super="https://github.com/SuperStudio/SuperControls"
+    Name="hexConverterWindow"
+    Title="{DynamicResource HexConverterTitle}"
+    Width="600"
+    Height="500"
+    Background="{DynamicResource Window.Background}"
+    Foreground="{DynamicResource Window.Foreground}"
+    Icon="pack://application:,,,/Resources/Ico/ICON.ico"
+    ResizeMode="CanResize"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- 转换类型选择 -->
+        <Border
+            Grid.Row="0"
+            Margin="0,0,0,10"
+            Background="{DynamicResource Window.Side.Background}"
+            CornerRadius="8"
+            Padding="10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    Foreground="{DynamicResource Window.Foreground}"
+                    Opacity="0.7"
+                    Text="{DynamicResource ConvertType}" />
+                <ComboBox
+                    Name="cmbConvertType"
+                    Margin="10,0,0,0"
+                    DisplayMemberPath="Value"
+                    SelectedIndex="0"
+                    SelectedValuePath="Key"
+                    SelectionChanged="cmbConvertType_SelectionChanged"
+                    Style="{StaticResource BaseComboBox}"
+                    Width="200" />
+            </StackPanel>
+        </Border>
+
+        <!-- 输入区域 -->
+        <Border
+            Grid.Row="1"
+            Background="{DynamicResource Window.Side.Background}"
+            CornerRadius="8"
+            Padding="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Grid.Row="0"
+                    Margin="0,0,0,8"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource Window.Foreground}"
+                    Text="{DynamicResource InputValue}" />
+
+                <Border
+                    Grid.Row="1"
+                    Background="{DynamicResource Window.Title.Background}"
+                    CornerRadius="5">
+                    <TextBox
+                        Name="txtInput"
+                        Margin="8"
+                        VerticalAlignment="Stretch"
+                        AcceptsReturn="True"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        CaretBrush="{DynamicResource Window.Foreground}"
+                        FontFamily="Consolas"
+                        FontSize="14"
+                        Foreground="{DynamicResource Window.Foreground}"
+                        TextChanged="txtInput_TextChanged"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto" />
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- 转换按钮 -->
+        <StackPanel
+            Grid.Row="2"
+            Margin="0,10"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                MinWidth="100"
+                Click="DoConvertClick"
+                Content="{DynamicResource Convert}"
+                Style="{StaticResource ButtonPrimary}" />
+            <Button
+                MinWidth="100"
+                Margin="10,0,0,0"
+                Click="SwapInputOutput"
+                Content="{DynamicResource Swap}"
+                Style="{StaticResource FlatButton}" />
+            <Button
+                MinWidth="100"
+                Margin="10,0,0,0"
+                Click="ClearAll"
+                Content="{DynamicResource Clear}"
+                Style="{StaticResource FlatButton}" />
+        </StackPanel>
+
+        <!-- 输出区域 -->
+        <Border
+            Grid.Row="3"
+            Background="{DynamicResource Window.Side.Background}"
+            CornerRadius="8"
+            Padding="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackPanel
+                    Grid.Row="0"
+                    Margin="0,0,0,8"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        FontWeight="Bold"
+                        Foreground="{DynamicResource Window.Foreground}"
+                        Text="{DynamicResource OutputValue}" />
+                    <Button
+                        Margin="15,0,0,0"
+                        Padding="8,2"
+                        Click="CopyResult"
+                        Content="{DynamicResource Copy}"
+                        Style="{StaticResource FlatButton}" />
+                </StackPanel>
+
+                <Border
+                    Grid.Row="1"
+                    Background="{DynamicResource Window.Title.Background}"
+                    CornerRadius="5">
+                    <TextBox
+                        Name="txtOutput"
+                        Margin="8"
+                        VerticalAlignment="Stretch"
+                        AcceptsReturn="True"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        CaretBrush="{DynamicResource Window.Foreground}"
+                        FontFamily="Consolas"
+                        FontSize="14"
+                        Foreground="{DynamicResource Window.Foreground}"
+                        IsReadOnly="True"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto" />
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</super:BaseWindow>

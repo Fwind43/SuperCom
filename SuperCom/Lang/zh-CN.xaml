@@ -162,4 +162,17 @@
     <sys:String x:Key="Port">端口</sys:String>
     <sys:String x:Key="Status">状态</sys:String>
 
+    <!-- 进制转换工具 -->
+    <sys:String x:Key="HexConverterTitle">进制转换工具</sys:String>
+    <sys:String x:Key="ConvertType">转换类型</sys:String>
+    <sys:String x:Key="InputValue">输入值</sys:String>
+    <sys:String x:Key="OutputValue">输出结果</sys:String>
+    <sys:String x:Key="Convert">转换</sys:String>
+    <sys:String x:Key="Swap">交换</sys:String>
+    <sys:String x:Key="Copy">复制</sys:String>
+    <sys:String x:Key="CopySuccess">复制成功</sys:String>
+    <sys:String x:Key="ConvertError">转换错误</sys:String>
+    <sys:String x:Key="ConvertHexToAscii">Hex转ASCII</sys:String>
+    <sys:String x:Key="ConvertAsciiToHex">ASCII转Hex</sys:String>
+
 </ResourceDictionary>

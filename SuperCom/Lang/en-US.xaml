@@ -162,5 +162,18 @@
     <sys:String x:Key="Port">Port</sys:String>
     <sys:String x:Key="Status">Status</sys:String>
 
+    <!-- Hex Converter Tool -->
+    <sys:String x:Key="HexConverterTitle">Hex Converter</sys:String>
+    <sys:String x:Key="ConvertType">Convert Type</sys:String>
+    <sys:String x:Key="InputValue">Input Value</sys:String>
+    <sys:String x:Key="OutputValue">Output Result</sys:String>
+    <sys:String x:Key="Convert">Convert</sys:String>
+    <sys:String x:Key="Swap">Swap</sys:String>
+    <sys:String x:Key="Copy">Copy</sys:String>
+    <sys:String x:Key="CopySuccess">Copied</sys:String>
+    <sys:String x:Key="ConvertError">Convert Error</sys:String>
+    <sys:String x:Key="ConvertHexToAscii">Hex to ASCII</sys:String>
+    <sys:String x:Key="ConvertAsciiToHex">ASCII to Hex</sys:String>
+
 
 </ResourceDictionary>

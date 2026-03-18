@@ -243,6 +243,9 @@
     <Compile Include="Windows\Window_SinglePort.xaml.cs">
       <DependentUpon>Window_SinglePort.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Window_HexConverter.xaml.cs">
+      <DependentUpon>Window_HexConverter.xaml</DependentUpon>
+    </Compile>
     <Page Include="AvalonEdit\SearchPanel\SearchPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -322,6 +325,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Window_SinglePort.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Window_HexConverter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
