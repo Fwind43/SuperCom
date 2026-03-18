@@ -137,6 +137,7 @@
     <sys:String x:Key="FilterAction">Filter Action</sys:String>
     <sys:String x:Key="FilterActionKeep">Keep</sys:String>
     <sys:String x:Key="FilterActionDiscard">Discard</sys:String>
+    <sys:String x:Key="Percolator">Enable Filter</sys:String>
 
     <!-- Single Port Window -->
     <sys:String x:Key="SinglePortWindow">Single Port Window</sys:String>

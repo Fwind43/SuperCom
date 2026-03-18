@@ -137,6 +137,7 @@
     <sys:String x:Key="FilterAction">过滤动作</sys:String>
     <sys:String x:Key="FilterActionKeep">保留</sys:String>
     <sys:String x:Key="FilterActionDiscard">丢弃</sys:String>
+    <sys:String x:Key="Percolator">启用过滤</sys:String>
 
     <!-- 单串口窗口 -->
     <sys:String x:Key="SinglePortWindow">单串口窗口</sys:String>

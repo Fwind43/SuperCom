@@ -852,14 +852,28 @@ namespace SuperCom.Entity
                 PacketFilterRule.LoadAllRules();
             }
 
+            var rules = PacketFilterRule.AllRules;
+            if (rules == null || rules.Count == 0)
+                return false;
+
             // 检查所有启用的规则
-            foreach (var rule in PacketFilterRule.AllRules)
+            foreach (var rule in rules)
             {
                 if (!rule.IsEnabled)
                     continue;
 
-                if (rule.ShouldFilter(data))
-                    return true;
+                try
+                {
+                    if (rule.ShouldFilter(data))
+                    {
+                        App.Logger.Info($"Packet filtered by rule: {rule.RuleName}, data length: {data.Length}");
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    App.Logger.Error($"Filter rule error: {ex.Message}");
+                }
             }
 
             return false;

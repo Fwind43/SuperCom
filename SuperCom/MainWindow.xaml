@@ -1761,14 +1761,12 @@
                                                     Height="20"
                                                     VerticalAlignment="Center"
                                                     Background="{DynamicResource Window.Title.Background}"
-                                                    IsChecked="{Binding EnabledFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                    Visibility="Collapsed" />
+                                                    IsChecked="{Binding EnabledFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     Style="{StaticResource BaseTextBlock}"
                                                     Text="{DynamicResource Percolator}"
-                                                    ToolTip="过滤规则同语法高亮"
-                                                    Visibility="Collapsed" />
+                                                    ToolTip="启用数据包过滤" />
 
                                             </WrapPanel>
                                         </Border>
