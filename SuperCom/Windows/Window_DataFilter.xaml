@@ -100,12 +100,12 @@
                 Margin="5"
                 Click="TestFilter"
                 Content="{DynamicResource TestFilter}"
-                Style="{StaticResource ButtonDefault}" />
+                Style="{StaticResource FlatButton}" />
             <Button
                 Margin="5"
                 Click="Close"
                 Content="{DynamicResource Close}"
-                Style="{StaticResource ButtonDefault}" />
+                Style="{StaticResource FlatButton}" />
         </StackPanel>
 
         <!-- 编辑弹窗 -->
@@ -195,7 +195,7 @@
                             Margin="5"
                             Click="CancelEdit"
                             Content="{DynamicResource Cancel}"
-                            Style="{StaticResource ButtonDefault}" />
+                            Style="{StaticResource FlatButton}" />
                     </StackPanel>
                 </Grid>
             </Grid>
