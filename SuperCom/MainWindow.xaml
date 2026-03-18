@@ -211,6 +211,8 @@
                         <MenuItem Click="OpenDataFilter" Header="{DynamicResource DataFilterSettings}" />
                         <MenuItem Click="OpenPacketFilter" Header="{DynamicResource PacketFilterSettings}" />
                         <Separator Margin="-20,5,10,5" />
+                        <MenuItem Click="OpenSinglePortWindow" Header="{DynamicResource SinglePortWindow}" />
+                        <Separator Margin="-20,5,10,5" />
                         <MenuItem
                             Click="ShowAscii"
                             Header="{DynamicResource AsciiTable}"

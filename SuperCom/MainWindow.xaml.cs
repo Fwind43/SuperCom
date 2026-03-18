@@ -3004,6 +3004,25 @@ namespace SuperCom
             packetFilter.Show();
         }
 
+        private void OpenSinglePortWindow(object sender, RoutedEventArgs e)
+        {
+            if (vieModel?.PortTabItems == null || vieModel.PortTabItems.Count == 0)
+            {
+                MessageNotify.Warning(LangManager.GetValueByKey("NoPortOpened"));
+                return;
+            }
+
+            // 获取当前选中的串口
+            var selectedPort = vieModel.PortTabItems.FirstOrDefault(p => p.Selected);
+            if (selectedPort == null)
+            {
+                selectedPort = vieModel.PortTabItems[0];
+            }
+
+            Window_SinglePort singlePort = new Window_SinglePort(selectedPort);
+            singlePort.Show();
+        }
+
 
         private void pinToggleButton_Checked(object sender, RoutedEventArgs e)
         {

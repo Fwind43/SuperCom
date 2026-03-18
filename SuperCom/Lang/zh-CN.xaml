@@ -129,4 +129,14 @@
     <sys:String x:Key="FilterActionKeep">保留</sys:String>
     <sys:String x:Key="FilterActionDiscard">丢弃</sys:String>
 
+    <!-- 单串口窗口 -->
+    <sys:String x:Key="SinglePortWindow">单串口窗口</sys:String>
+    <sys:String x:Key="NoPortOpened">没有打开的串口</sys:String>
+    <sys:String x:Key="ShowHex">显示Hex</sys:String>
+    <sys:String x:Key="ShowTimeStamp">显示时间戳</sys:String>
+    <sys:String x:Key="SendHex">发送Hex</sys:String>
+    <sys:String x:Key="AddNewLine">添加换行</sys:String>
+    <sys:String x:Key="ConvertFormat">转换格式</sys:String>
+    <sys:String x:Key="ConvertNone">不转换</sys:String>
+
 </ResourceDictionary>

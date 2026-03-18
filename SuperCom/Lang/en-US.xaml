@@ -129,5 +129,15 @@
     <sys:String x:Key="FilterActionKeep">Keep</sys:String>
     <sys:String x:Key="FilterActionDiscard">Discard</sys:String>
 
+    <!-- Single Port Window -->
+    <sys:String x:Key="SinglePortWindow">Single Port Window</sys:String>
+    <sys:String x:Key="NoPortOpened">No port opened</sys:String>
+    <sys:String x:Key="ShowHex">Show Hex</sys:String>
+    <sys:String x:Key="ShowTimeStamp">Show Timestamp</sys:String>
+    <sys:String x:Key="SendHex">Send Hex</sys:String>
+    <sys:String x:Key="AddNewLine">Add Newline</sys:String>
+    <sys:String x:Key="ConvertFormat">Convert Format</sys:String>
+    <sys:String x:Key="ConvertNone">No Convert</sys:String>
+
 
 </ResourceDictionary>
