@@ -42,7 +42,7 @@
                 Margin="5"
                 AcceptsReturn="True"
                 Background="Transparent"
-                Style="{StaticResource SearchTextBoxStyle}"
+                Style="{StaticResource MultiLineTextBox}"
                 TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Auto" />
         </Border>
@@ -84,7 +84,7 @@
                 AcceptsReturn="True"
                 Background="Transparent"
                 IsReadOnly="True"
-                Style="{StaticResource SearchTextBoxStyle}"
+                Style="{StaticResource ReadOnlyTextBox}"
                 TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Auto" />
         </Border>

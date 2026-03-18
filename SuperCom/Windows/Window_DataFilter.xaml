@@ -176,7 +176,7 @@
                             Name="txtDescription"
                             AcceptsReturn="True"
                             Height="60"
-                            Style="{StaticResource SearchTextBoxStyle}"
+                            Style="{StaticResource MultiLineTextBox}"
                             TextWrapping="Wrap"
                             VerticalScrollBarVisibility="Auto" />
                     </DockPanel>
