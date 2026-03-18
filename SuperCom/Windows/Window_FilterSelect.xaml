@@ -31,7 +31,8 @@
                 DisplayMemberPath="RuleName"
                 ItemsSource="{Binding FilterRules}"
                 SelectedItem="{Binding SelectedRule}"
-                Style="{StaticResource BaseListBox}" />
+                Style="{StaticResource NormalListBox}"
+                ItemContainerStyle="{StaticResource NormalListBoxItem}" />
         </Border>
 
         <StackPanel

@@ -156,7 +156,7 @@
                             Name="cmbMatchType"
                             DisplayMemberPath="Value"
                             SelectedValuePath="Key"
-                            Style="{StaticResource BaseComboBox}" />
+                            Style="{StaticResource BorderComboBox}" />
                     </DockPanel>
 
                     <DockPanel Grid.Row="3" Margin="0,5">
@@ -176,7 +176,7 @@
                             Name="txtDescription"
                             AcceptsReturn="True"
                             Height="60"
-                            Style="{StaticResource BaseTextBox}"
+                            Style="{StaticResource SearchTextBoxStyle}"
                             TextWrapping="Wrap"
                             VerticalScrollBarVisibility="Auto" />
                     </DockPanel>

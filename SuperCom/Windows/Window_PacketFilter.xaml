@@ -155,7 +155,7 @@
                             Name="cmbMatchType"
                             DisplayMemberPath="Value"
                             SelectedValuePath="Key"
-                            Style="{StaticResource BaseComboBox}" />
+                            Style="{StaticResource BorderComboBox}" />
                     </DockPanel>
 
                     <DockPanel Grid.Row="3" Margin="0,5">
@@ -175,7 +175,7 @@
                             Name="cmbAction"
                             DisplayMemberPath="Value"
                             SelectedValuePath="Key"
-                            Style="{StaticResource BaseComboBox}" />
+                            Style="{StaticResource BorderComboBox}" />
                     </DockPanel>
 
                     <StackPanel

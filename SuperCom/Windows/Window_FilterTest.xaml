@@ -42,7 +42,7 @@
                 Margin="5"
                 AcceptsReturn="True"
                 Background="Transparent"
-                Style="{StaticResource BaseTextBox}"
+                Style="{StaticResource SearchTextBoxStyle}"
                 TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Auto" />
         </Border>
@@ -59,7 +59,7 @@
                 Name="cmbRules"
                 Margin="10,0"
                 DisplayMemberPath="RuleName"
-                Style="{StaticResource BaseComboBox}" />
+                Style="{StaticResource BorderComboBox}" />
             <Button
                 Margin="10,0,0,0"
                 Click="RunTest"
@@ -84,7 +84,7 @@
                 AcceptsReturn="True"
                 Background="Transparent"
                 IsReadOnly="True"
-                Style="{StaticResource BaseTextBox}"
+                Style="{StaticResource SearchTextBoxStyle}"
                 TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Auto" />
         </Border>

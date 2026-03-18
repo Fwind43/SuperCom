@@ -45,7 +45,7 @@
                     SelectedIndex="0"
                     SelectedValuePath="Key"
                     SelectionChanged="cmbConvertType_SelectionChanged"
-                    Style="{StaticResource BaseComboBox}"
+                    Style="{StaticResource BorderComboBox}"
                     Width="200" />
             </StackPanel>
         </Border>

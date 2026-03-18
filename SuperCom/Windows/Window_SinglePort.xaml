@@ -253,7 +253,7 @@
                             ItemsSource="{Binding DataConvertTypes}"
                             SelectedIndex="{Binding DataConvertIndex}"
                             SelectedValuePath="Key"
-                            Style="{StaticResource BaseComboBox}" />
+                            Style="{StaticResource BorderComboBox}" />
                     </StackPanel>
                 </Border>
 
