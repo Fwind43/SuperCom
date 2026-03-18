@@ -108,6 +108,10 @@
     <!-- 数据转换 -->
     <sys:String x:Key="DataConvertType">数据转换格式</sys:String>
     <sys:String x:Key="ConvertNone">无转换</sys:String>
+    <sys:String x:Key="ConvertHexToString">Hex转字符串</sys:String>
+    <sys:String x:Key="ConvertStringToHex">字符串转Hex</sys:String>
+    <sys:String x:Key="ConvertHexToDec">Hex转十进制</sys:String>
+    <sys:String x:Key="ConvertDecToHex">十进制转Hex</sys:String>
     <sys:String x:Key="ConvertHexToFloatBE">Hex转Float(大端)</sys:String>
     <sys:String x:Key="ConvertHexToFloatLE">Hex转Float(小端)</sys:String>
     <sys:String x:Key="ConvertFloatToHexBE">Float转Hex(大端)</sys:String>

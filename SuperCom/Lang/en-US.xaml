@@ -108,6 +108,10 @@
     <!-- Data Convert -->
     <sys:String x:Key="DataConvertType">Data Convert Type</sys:String>
     <sys:String x:Key="ConvertNone">No Convert</sys:String>
+    <sys:String x:Key="ConvertHexToString">Hex to String</sys:String>
+    <sys:String x:Key="ConvertStringToHex">String to Hex</sys:String>
+    <sys:String x:Key="ConvertHexToDec">Hex to Decimal</sys:String>
+    <sys:String x:Key="ConvertDecToHex">Decimal to Hex</sys:String>
     <sys:String x:Key="ConvertHexToFloatBE">Hex to Float (Big Endian)</sys:String>
     <sys:String x:Key="ConvertHexToFloatLE">Hex to Float (Little Endian)</sys:String>
     <sys:String x:Key="ConvertFloatToHexBE">Float to Hex (Big Endian)</sys:String>
