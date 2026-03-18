@@ -3030,6 +3030,20 @@ namespace SuperCom
             singlePort.Show();
         }
 
+        private void OpenCurrentSinglePortWindow(object sender, RoutedEventArgs e)
+        {
+            // 获取当前选中串口
+            var selectedPort = vieModel?.PortTabItems?.FirstOrDefault(p => p.Selected);
+            if (selectedPort == null)
+            {
+                MessageNotify.Warning(LangManager.GetValueByKey("NoPortOpened"));
+                return;
+            }
+
+            Window_SinglePort singlePort = new Window_SinglePort(selectedPort);
+            singlePort.Show();
+        }
+
 
         private void pinToggleButton_Checked(object sender, RoutedEventArgs e)
         {

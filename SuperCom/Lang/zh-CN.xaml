@@ -143,7 +143,8 @@
     <sys:String x:Key="Percolator">启用过滤</sys:String>
 
     <!-- 单串口窗口 -->
-    <sys:String x:Key="SinglePortWindow">单串口窗口</sys:String>
+    <sys:String x:Key="SinglePortWindow">单窗口</sys:String>
+    <sys:String x:Key="OpenSinglePortWindowTip">在新窗口中打开当前串口</sys:String>
     <sys:String x:Key="NoPortOpened">没有打开的串口</sys:String>
     <sys:String x:Key="ShowHex">显示Hex</sys:String>
     <sys:String x:Key="ShowTimeStamp">显示时间戳</sys:String>

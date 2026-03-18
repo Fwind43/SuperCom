@@ -1200,6 +1200,13 @@
                                                     Click="SaveToNewFile"
                                                     Content="{DynamicResource LogSaveAs}" />
 
+                                                <Button
+                                                    Margin="5,0"
+                                                    Click="OpenCurrentSinglePortWindow"
+                                                    Content="{DynamicResource SinglePortWindow}"
+                                                    Style="{StaticResource FlatButton}"
+                                                    ToolTip="{DynamicResource OpenSinglePortWindowTip}" />
+
                                                 <StackPanel
                                                     Grid.Column="1"
                                                     Margin="10,0"
