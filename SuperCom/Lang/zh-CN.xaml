@@ -97,6 +97,7 @@
     <sys:String x:Key="PleaseSelectRule">请选择规则</sys:String>
     <sys:String x:Key="ConfirmDelete">确认删除？</sys:String>
     <sys:String x:Key="DeleteSuccess">删除成功</sys:String>
+    <sys:String x:Key="SaveSuccess">保存成功</sys:String>
     <sys:String x:Key="TestFilter">测试筛选</sys:String>
     <sys:String x:Key="FilterTestTitle">筛选测试</sys:String>
     <sys:String x:Key="InputData">输入数据</sys:String>

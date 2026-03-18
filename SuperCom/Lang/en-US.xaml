@@ -97,6 +97,7 @@
     <sys:String x:Key="PleaseSelectRule">Please select a rule</sys:String>
     <sys:String x:Key="ConfirmDelete">Confirm delete?</sys:String>
     <sys:String x:Key="DeleteSuccess">Delete success</sys:String>
+    <sys:String x:Key="SaveSuccess">Save success</sys:String>
     <sys:String x:Key="TestFilter">Test Filter</sys:String>
     <sys:String x:Key="FilterTestTitle">Filter Test</sys:String>
     <sys:String x:Key="InputData">Input Data</sys:String>
